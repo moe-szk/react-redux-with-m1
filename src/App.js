@@ -20,7 +20,31 @@ import React, {Component} from 'react';
 // }
 
 const App = () => {
-	return <div>Hi!</div>
+	const profiles = [
+			{name:"Taro",age : 10},
+			{name:"Hanako",age : 100},
+			{name:"ぎがんとフォッフォ"}
+	];
+	return (
+	<div>
+		{
+			profiles.map((profile,index)=> {
+				return <User name={profile.name} age={profile.age} key ={index}/>
+			})
+		}
+	</div>
+	)
 }
 
+const User = (props) => {
+	return (
+		<React.Fragment>
+			Hi, I'm {props.name}! Next year I will be {props.age + 1}...!
+		</React.Fragment>
+	)
+}
+
+User.defaultProps = {
+	age : 1
+}
 export default App;
